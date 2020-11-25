@@ -388,7 +388,7 @@
     </style>
 
 </head>
-<script type="text/javascript" src="/assets/js/plugins.js"></script>
+
 <body class="antialiased">
 <h1>Привит</h1>
 <div class="container-selects-all">
@@ -481,17 +481,7 @@
     <rect x="50" y="50" width="500" height="300" fill="#8d81ac" filter="url(#blur)" />
 </svg>
 </body>
-<script>
-    const customSelect = new CustomSelect();
-    let options = customSelect.getOptions();
-    let list = customSelect.createList(options);
 
-    const changeList = new ChangeList();
-    let parentElem = changeList.addEventListener();
-
-    const hideSelect = new CloseList();
-    let close = hideSelect.hideAllList();
-
-</script>
+<script type="text/javascript" src="/assets/js/plugins.js"></script>
 </html>
 

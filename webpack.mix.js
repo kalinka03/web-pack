@@ -23,15 +23,45 @@ mix
 
     .scripts([
         'resources/assets/js/jquery-3.4.1.min.js',
-        'resources/assets/vendor/js/*.js', 'resources/assets/js/main.js',
+        'resources/assets/vendor/js/*.js',
         'resources/assets/js/app.js',
+        'resources/assets/js/main.js'
     ], 'public/assets/js/plugins.js')
-
+    // .js('resources/assets/js/main.js', "public/assets/js/main.js")
+    // .styles([
+    //     "public/assets/fonts/fonts.css",
+    //     "public/assets/plugin/animate/animate.css",
+    //     "public/assets/plugin/slinky/css/normalize.css",
+    //     "public/assets/plugin/slinky/css/slinky.min.css",
+    //     "public/assets/plugin/slinky/css/demo.css",
+    //     "public/assets/plugin/slinky/css/devices.min.css",
+    //     "public/assets/plugin/woocommerce/flexslider.css",
+    //     "public/assets/plugin/OwlCarousel2-2.3.4/owl.carousel.min.css",
+    //     "public/assets/plugin/OwlCarousel2-2.3.4/owl.theme.default.min.css",
+    //     "public/assets/plugin/fancybox-master/jquery.fancybox.css",
+    //     "public/assets/plugin/aos-master/aos.css",
+    //     // "public/assets/plugin/font-awesome-4.7.0/css/font-awesome.css",
+    // ], 'public/assets/mix/plugins.css')
     .sass('resources/assets/scss/app.scss', 'public/assets/css/vendor.css', {
     sourceMap: true,
 })
     .styles('resources/assets/scss/vendor/styles/*.css', 'public/assets/css/plugins.css')
+    // .webpackConfig({
+    //     plugins: [
+    //         new ImageminPlugin({
+    //             pngquant: {
+    //                 quality: '95-100',
+    //             },
+    //             test: /\.(jpe?g|png|gif|svg)$/i,
+    //         }),
+    //     ],
+    // })
     .copy('resources/assets/images', 'public/assets/images', false)
+    // .svgSprite({
+    //     src: 'resources/assets/icons/*.svg',
+    //     filename: 'public/assets/sprite.svg',
+    //     prefix: ''
+    // })
     // .copyDirectory('resources/assets/images', 'public/assets/images')
     //     .webpackConfig({
     //     plugins: [
@@ -82,3 +112,32 @@ mix
     })
     .sourceMaps()
     .webpackConfig({devtool: 'source-map'})
+
+//
+// Mix.listen('configReady', (webpackConfig) => {
+//
+//     // Add separate svg loader
+//     webpackConfig.module.rules.push({
+//         test: /\.(svg)$/,
+//         include: /assets\/svg/,
+//         loaders: [
+//             {
+//                 loader: 'file-loader',
+//                 options: {
+//                     name: 'svg/[name].[ext]?[hash]',
+//                     publicPath: Config.resourceRoot
+//                 }
+//             },
+//
+//             {
+//                 loader: 'img-loader',
+//                 options: Config.imgLoaderOptions
+//             }
+//         ]
+//     });
+//
+//     // Exclude local 'svg' folder from font loader
+//     let fontLoaderConfig = webpackConfig.module.rules.find(rule => String(rule.test) === String(/\.(woff2?|ttf|eot|svg|otf)$/))
+//     fontLoaderConfig.exclude = /(assets\/svg)/;
+//
+// });
