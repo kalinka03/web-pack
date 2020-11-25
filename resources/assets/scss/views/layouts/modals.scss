@@ -1,0 +1,64 @@
+/*============================================================================
+	#Modals
+==============================================================================*/
+
+.mfp-bg {
+	//background-image: url(../images/theme/popup/bg2.jpg);
+	background-repeat: repeat;
+	background-position: center;
+	opacity: 1;
+}
+
+.modals {
+	display: none;
+
+}
+
+.modal {
+	max-width: 470px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	padding: 110px 0 0;
+	.button-modals {
+		border: 1px solid #eaa639;
+		color: #eaa639;
+		font-size: 15px;
+		line-height: 24px;
+		font-family: "Roboto-Bold", sans-serif;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 10px 0;
+		width: 100%;
+		background: none;
+		margin-bottom: 20px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&::before {
+		content: '';
+		height: 100%;
+		width: calc(100% + 60px);
+		left: -30px;
+		top: 100px;
+		position: absolute;
+		z-index: -1;
+	}
+	&__close {
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		position: absolute;
+		width: 95px;
+		height: 95px;
+		opacity: 1 !important;
+		box-shadow: none;
+		background: none;
+		border: 0;
+		img {
+			transition: 0.5s;
+		}
+	}
+}

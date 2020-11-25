@@ -1,0 +1,631 @@
+/*============================================================================
+	#Typography
+==============================================================================*/
+html {
+  font-family: $fontMain;
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+  font-family: $fontMain;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+.seo-blocks {
+  > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $fontMain;
+    font-weight: normal;
+    margin: 30px 0;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  h6 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  a:active,
+  a:visited {
+    color: #b69073;
+  }
+
+  a {
+    color: #cfa482;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      animation-duration: 500ms;
+    }
+    &:hover {
+      text-decoration: none;
+
+      &::before {
+        animation-name: bounce-link;
+        animation-timing-function: ease;
+      }
+    }
+
+  }
+
+  p {
+    color: $fontColorSecond;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 30px 0;
+  }
+
+  > div {
+    line-height: 24px;
+    margin: 0 0 30px 0;
+  }
+
+  img {
+    margin: 30px 0 30px 0;
+  }
+
+  hr {
+    background-color: #e8f5ff;
+    border: 0;
+    height: 2px;
+    margin: 30px 0 30px 0;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0rem;
+    line-height: 1.42;
+  }
+
+  ul {
+    li {
+      position: relative;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 24px;
+      padding-left: 15px;
+      list-style: none;
+      color: $fontColorSecond;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        content: '';
+        border: 2px solid #eaa639;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  ol {
+    li {
+      counter-increment: item;
+      position: relative;
+      margin-bottom: 27px;
+      padding-left: 32px;
+
+      &::before {
+        content: counter(item) '.';
+        display: inline-block;
+        margin-right: 11px;
+        color: #222;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  li > ul,
+  li > ol {
+    margin-bottom: 0;
+    margin-left: 1.5em;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0 1.5em 1.5em;
+  }
+
+  figure {
+    margin: 1em 0;
+  }
+
+  table {
+    margin: 0 0 1.5em;
+    width: 100%;
+  }
+
+  dfn,
+  cite,
+  em,
+  i {
+    font-style: italic;
+  }
+
+  blockquote {
+    padding: 1.6rem 3rem;
+    margin: 4rem 0rem;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: ',,';
+      font-family: $fontMain;
+      line-height: 1;
+      position: absolute;
+      font-size: 50px;
+      letter-spacing: -4px;
+      transform: rotate(180deg);
+      top: 1px;
+      left: 6px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  address {
+    margin: 0 0 1.5em;
+  }
+
+  pre {
+    background: #eee;
+    font-family: 'Courier 10 Pitch', Courier, monospace;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1.6em;
+  }
+
+  iframe {
+    width: 100%;
+    margin: 30px 0;
+    min-height: 480px;
+  }
+
+  .responsive-iframe {
+    position: relative;
+    display: inline-block;
+    padding-top: 56.25%;
+    width: 100%;
+    margin: 2rem 0 4rem 0;
+
+    iframe {
+      position: absolute;
+      width: calc(100%);
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+
+    }
+  }
+}
+
+.seo-main {
+  color: $fontColorSecond;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $fontMedium;
+    font-weight: 500;
+  }
+  h1 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 60px 0 45px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 30px;
+    margin: 60px 0 45px;
+  }
+  h4 {
+    font-size: 20px;
+    line-height: 26px;
+    margin: 60px 0 45px;
+  }
+  h5 {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 60px 0 45px;
+  }
+  h6 {
+    font-size: 16px;
+    line-height: 26px;
+    margin: 60px 0 45px;
+  }
+  p {
+    color: $fontColorSecond;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 35px 0;
+    a {
+      position: var(--textUnderlinedPosition, relative) !important;
+      z-index: var(--textUnderlinedZindex, 1) !important;
+      display: var(--rLinkDisplay, inline-flex) !important;
+      padding-right: .15rem;
+      padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+      padding-left: .15rem;
+      text-decoration: var(--rLinkTextDecoration, none) !important;
+      color: #01332a;
+      -webkit-text-decoration: var(--rLinkTextDecoration, none) !important;
+      --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 0px);
+      --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, 0);
+      --uiTextUnderlinedPaddingBottom: var(--uitextUnderlinedLineColor);
+      --textUnderlinedLineHeight: 40%;
+      --textUnderlinedLineColor: #ffbc3d;
+      &:after {
+        content: "";
+        width: var(--textUnderlinedLineWidht, 100%) !important;
+        height: var(--uiTextUnderlinedLineHeight) !important;
+        //background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 30%, rgba(0, 0, 0, 0) 45%)) !important;
+        background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 95%, rgba(0, 0, 0, 0) 100%)) !important;
+        position: absolute;
+        left: var(--textUnderlinedLineLeft, 0) !important;
+        bottom: var(--textUnderlinedLineBottom, 0) !important;
+        z-index: var(--textUnderlinedLineZindex, -1) !important;
+        will-change: width;
+        transition: width .1s ease-out;
+        transform: rotate(0deg);
+        transform-origin: left bottom;
+      }
+      &:hover {
+        --textUnderlinedLineWidht: 0;
+        &:after {
+          -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+        }
+      }
+    }
+  }
+  p {
+    img {
+      margin-bottom: 30px;
+    }
+  }
+  p {
+    iframe {
+      width: 100%;
+      min-height: 480px;
+    }
+  }
+  strong {
+    font-weight: 600;
+  }
+  ul {
+    margin: 45px 0;
+    padding-left: 0;
+    li {
+      font-size: 16px;
+      line-height: 24px;
+      position: relative;
+      list-style: none;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      a {
+        position: var(--textUnderlinedPosition, relative) !important;
+        z-index: var(--textUnderlinedZindex, 1) !important;
+        display: var(--rLinkDisplay, inline-flex) !important;
+        padding-right: .15rem;
+        padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+        padding-left: .15rem;
+        text-decoration: var(--rLinkTextDecoration, none) !important;
+        color: #01332a;
+        -webkit-text-decoration: var(--rLinkTextDecoration, none) !important;
+        --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 0px);
+        --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, 0);
+        --uiTextUnderlinedPaddingBottom: var(--uitextUnderlinedLineColor);
+        --textUnderlinedLineHeight: 40%;
+        --textUnderlinedLineColor: #ffbc3d;
+        &:after {
+          content: "";
+          width: var(--textUnderlinedLineWidht, 100%) !important;
+          height: var(--uiTextUnderlinedLineHeight) !important;
+          //background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 30%, rgba(0, 0, 0, 0) 45%)) !important;
+          background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 95%, rgba(0, 0, 0, 0) 100%)) !important;
+          position: absolute;
+          left: var(--textUnderlinedLineLeft, 0) !important;
+          bottom: var(--textUnderlinedLineBottom, 0) !important;
+          z-index: var(--textUnderlinedLineZindex, -1) !important;
+          will-change: width;
+          transition: width .1s ease-out;
+          transform: rotate(0deg);
+          transform-origin: left bottom;
+        }
+        &:hover {
+          --textUnderlinedLineWidht: 0;
+          &:after {
+            -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+          }
+        }
+      }
+      &:before {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        content: '';
+        border: 2px solid #eaa639;
+        border-radius: 50%;
+      }
+    }
+  }
+  ol {
+    margin: 45px 0;
+    padding-left: 0;
+    list-style: none;
+    li {
+      counter-increment: item;
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      line-height: 24px;
+      a {
+        position: var(--textUnderlinedPosition, relative) !important;
+        z-index: var(--textUnderlinedZindex, 1) !important;
+        display: var(--rLinkDisplay, inline-flex) !important;
+        padding-right: .15rem;
+        padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+        padding-left: .15rem;
+        text-decoration: var(--rLinkTextDecoration, none) !important;
+        color: #01332a;
+        -webkit-text-decoration: var(--rLinkTextDecoration, none) !important;
+        --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 0px);
+        --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, 0);
+        --uiTextUnderlinedPaddingBottom: var(--uitextUnderlinedLineColor);
+        --textUnderlinedLineHeight: 40%;
+        --textUnderlinedLineColor: #ffbc3d;
+        &:after {
+          content: "";
+          width: var(--textUnderlinedLineWidht, 100%) !important;
+          height: var(--uiTextUnderlinedLineHeight) !important;
+          //background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 30%, rgba(0, 0, 0, 0) 45%)) !important;
+          background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 95%, rgba(0, 0, 0, 0) 100%)) !important;
+          position: absolute;
+          left: var(--textUnderlinedLineLeft, 0) !important;
+          bottom: var(--textUnderlinedLineBottom, 0) !important;
+          z-index: var(--textUnderlinedLineZindex, -1) !important;
+          will-change: width;
+          transition: width .1s ease-out;
+          transform: rotate(0deg);
+          transform-origin: left bottom;
+        }
+        &:hover {
+          --textUnderlinedLineWidht: 0;
+          &:after {
+            -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+          }
+        }
+      }
+      &::before {
+        content: counter(item) '.';
+        display: inline-block;
+        margin-right: 11px;
+        color: #ffbf45;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+    }
+  }
+  blockquote {
+    p {
+      font-family: 'Roboto-Regular', sans-serif;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 24px;
+      position: relative;
+      padding-left: 50px;
+      margin: 0;
+      &:before {
+        width: 30px;
+        height: 20px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../icons/quote.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .seo-main {
+    h2, h3, h4, h5, h6 {
+      margin: 50px 0 30px;
+    }
+
+  }
+
+}
+
+@media (max-width: 767.98px) {
+  .seo-blocks {
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0;
+    }
+    h1 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+    h2 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    h3 {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    h4 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    p {
+      font-size: 15px;
+      margin: 0 0 20px 0;
+    }
+    iframe {
+      min-height: 280px;
+    }
+  }
+  .seo-main p {
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0 0 15px 0;
+  }
+  .seo-main h2 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .seo-main h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .seo-main h4 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .seo-main h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .seo-main ul {
+    margin: 30px 0;
+  }
+  .seo-main p img {
+    margin: 30px 0;
+  }
+  .new__more p {
+    text-align: center;
+  }
+  .seo-main p iframe {
+    width: 100%;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-iframe {
+    padding-top: 70% !important;
+  }
+  .seo-main h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .seo-main ul li {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .seo-main h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .seo-main h4 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .seo-main h5 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .seo-main h6 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .seo-main p iframe {
+    width: 100%;
+    min-height: 250px;
+  }
+  .seo-main blockquote {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .seo-main ol {
+    margin: 30px 0;
+  }
+  .seo-main ol li {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+}
+
