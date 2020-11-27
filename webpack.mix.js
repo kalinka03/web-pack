@@ -24,6 +24,7 @@ mix
     .scripts([
         'resources/assets/js/jquery-3.4.1.min.js',
         'resources/assets/vendor/js/*.js',
+        'resources/assets/js/bootstrap-select.min.js',
         'resources/assets/js/app.js',
         'resources/assets/js/main.js'
     ], 'public/assets/js/plugins.js')

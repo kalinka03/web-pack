@@ -393,7 +393,7 @@
 <h1>Привит</h1>
 <div class="container-selects-all">
 <div class="container-select">
-    <select name="appartment" >
+    <select name="appartment selectpicker" >
         <option value="Выберите значение квартиры" disabled> Выберите значение квартиры</option>
         <option value="квартира">квартира</option>
         <option value="лоджия">лоджия</option>
@@ -422,6 +422,66 @@
         </select>
     </div>
 </div>
+{{--<form action="">--}}
+
+{{--        <select  id="select" size="3" name="hero" style="display: block">--}}
+{{--            <option disabled>Выберите героя</option>--}}
+{{--            <option value="t1" selected>Чебурашка</option>--}}
+{{--            <option value="t2">Крокодил Гена</option>--}}
+{{--            <option value="t3">Шапокляк</option>--}}
+{{--            <option value="t4">Крыса Лариса</option>--}}
+{{--        </select>--}}
+{{--    <p><input type="submit" value="Отправить"></p>--}}
+{{--</form>--}}
+<div class="block-form__inner">
+    <form class="js-validate" action="#" autocomplete="off" novalidate="novalidate">
+        <input type="hidden" name="_token" value="avMC0o4OxxUSHBaDg0RLR1yuVeAeEq1IoX7Qr1iX">
+        <div class="form__row">
+            <div class="input-group">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="input-group">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="input-group">
+                <input type="email" name="email" required="" placeholder="Ваш email">
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="input-group">
+                <input class="input_number" type="number" name="phone" required="" minlength="10" digits="true" placeholder="Ваш телефон">
+            </div>
+        </div>
+
+        <input type="submit" class="button-modals">
+    </form>
+</div>
+<div class="block-form__inner">
+    <form class="js-validate" action="#" autocomplete="off" novalidate="novalidate">
+        <input type="hidden" name="_token" value="avMC0o4OxxUSHBaDg0RLR1yuVeAeEq1IoX7Qr1iX"><div class="form__row">
+            <div class="input-group">
+                <input type="text" name="name" required="" placeholder="Ваше имя">
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="input-group">
+                <input type="email" name="email" required="" placeholder="Ваш email">
+            </div>
+        </div>
+        <div class="form__row">
+            <div class="input-group">
+                <input class="input_number" type="number" name="phone" required="" minlength="10" digits="true" placeholder="Ваш телефон">
+            </div>
+        </div>
+
+        <input type="submit" class="button-modals">
+    </form>
+</div>
+
 <div class="grid-container2">
     <div class="grid-item">1</div>
     <div class="grid-item">2</div>
@@ -480,6 +540,12 @@
     </defs>
     <rect x="50" y="50" width="500" height="300" fill="#8d81ac" filter="url(#blur)" />
 </svg>
+{{--<select class="selectpicker">--}}
+{{--    <option>Mustard</option>--}}
+{{--    <option>Ketchup</option>--}}
+{{--    <option>Barbecue</option>--}}
+{{--</select>--}}
+
 </body>
 
 <script type="text/javascript" src="/assets/js/plugins.js"></script>

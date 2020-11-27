@@ -1,10 +1,14 @@
+
 class CustomSelect {
+    init(){
+        this.getOptions();
+        this.hideAllList();
+    }
     getOptions() {
         let selectList = document.querySelectorAll('select');
         let list = [];
         for (let elem of selectList) {
             let val = [];
-            let someValue = [];
             for (let valueSelect of elem) {
                 list.push(valueSelect.value);
             }
@@ -14,7 +18,9 @@ class CustomSelect {
             let ul = this.createList(val);
             elem.parentNode.appendChild(ul);
         }
-        return list;
+        this.addEventOption();
+        this.createList(list);
+
     }
 
     createList(options) {
@@ -39,11 +45,9 @@ class CustomSelect {
             divCustomList.appendChild(ulList);
         }
         return divCustomList;
-    }
-}
 
-class ChangeList {
-    addEventListener() {
+    }
+    addEventOption() {
         let arrayObject = this;
         let elemSelect = document.querySelectorAll('.custom-list span');
         elemSelect.forEach(cell => cell.addEventListener('click', function(){
@@ -89,26 +93,28 @@ class ChangeList {
             let hideListUl = changelistNext.hideList();
         }))
     }
-
     hideList() {
         let ulActive = document.querySelectorAll('.list');
         let parentBlock = document.querySelectorAll('.custom-list');
         ulActive.forEach(list => list.classList.remove('select_show'));
         parentBlock.forEach(block => block.classList.remove('active'));
     }
-}
-
-class CloseList  extends ChangeList {
     hideAllList() {
-        let closeObject = this;
         window.addEventListener("mouseup", function (event) {
             let divToHide = document.querySelectorAll('.custom-list span');
             for (let option of divToHide) {
                 if (!(event.target == option) && !(event.target.parentNode == option)) {
-                    let hideListUl = closeObject.hideList();
+                    let hideListUl = customSelect.hideList();
                 }
             }
         })
     }
+    destroy(){
+
+    }
 }
+
+const customSelect = new CustomSelect();
+let initial = customSelect.init();
+
 
