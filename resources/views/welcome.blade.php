@@ -422,6 +422,7 @@
         </select>
     </div>
 </div>
+<p id="remove">Удалить плагин</p>
 {{--<form action="">--}}
 
 {{--        <select  id="select" size="3" name="hero" style="display: block">--}}

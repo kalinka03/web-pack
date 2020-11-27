@@ -110,11 +110,21 @@ class CustomSelect {
         })
     }
     destroy(){
-
+        let listAllDom = document.querySelectorAll('.custom-list');
+        for (let elem of listAllDom) {
+            elem.remove();
+        }
     }
 }
 
+let elemRemove = document.getElementById('remove');
+elemRemove.addEventListener('click', function () {
+    let initial = customSelect.destroy();
+})
+
 const customSelect = new CustomSelect();
 let initial = customSelect.init();
+
+
 
 
