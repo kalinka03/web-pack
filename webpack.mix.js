@@ -26,6 +26,7 @@ mix
         'resources/assets/vendor/js/*.js',
         'resources/assets/js/bootstrap-select.min.js',
         'resources/assets/js/app.js',
+        'resources/assets/js/other.js',
         'resources/assets/js/main.js'
     ], 'public/assets/js/plugins.js')
     // .js('resources/assets/js/main.js', "public/assets/js/main.js")

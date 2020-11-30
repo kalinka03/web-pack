@@ -1,26 +1,24 @@
-
 class CustomSelect {
-    init(){
-        this.getOptions();
+    init() {
+        const showClass = 'select_show';
+        const constSelect = '.someselect';
+        const parentList = document.querySelectorAll('.custom-list .list');
+        const parentListArrow = document.querySelectorAll('.custom-list');
+        const elem = document.querySelectorAll(constSelect);
+        for (let option of elem) {
+           this.getOptions(option);
+        }
+        this.addEventOption(showClass, parentList, parentListArrow);
         this.hideAllList();
     }
-    getOptions() {
-        let selectList = document.querySelectorAll('select');
-        let list = [];
-        for (let elem of selectList) {
-            let val = [];
-            for (let valueSelect of elem) {
-                list.push(valueSelect.value);
-            }
-            for (let i = 0; i < elem.length; i++) {
-                val.push(elem[i].value);
-            }
-            let ul = this.createList(val);
-            elem.parentNode.appendChild(ul);
-        }
-        this.addEventOption();
-        this.createList(list);
 
+    getOptions(option) {
+        let val = [];
+        for (let i = 0; i < option.length; i++) {
+            val.push(option[i].value);
+        }
+        let ul = this.createList(val);
+        option.parentNode.appendChild(ul);
     }
 
     createList(options) {
@@ -45,38 +43,32 @@ class CustomSelect {
             divCustomList.appendChild(ulList);
         }
         return divCustomList;
-
     }
-    addEventOption() {
+    addEventOption(showClass, parentList, parentListArrow) {
+        let elemSelectList = document.querySelectorAll('.custom-list span')
         let arrayObject = this;
-        let elemSelect = document.querySelectorAll('.custom-list span');
-        elemSelect.forEach(cell => cell.addEventListener('click', function(){
-            let parentList = document.querySelectorAll('.custom-list .list');
-            let parentListArrow = document.querySelectorAll('.custom-list');
-            let getThis = cell;
+        elemSelectList.forEach(opt => opt.addEventListener('click', function () {
+            let getThis = opt;
             let ulList = getThis.nextSibling;
             let optionList = getThis.parentNode;
-            if (optionList.classList.contains('active')) {
-                ulList.classList.remove('select_show');
-                optionList.classList.remove('active');
-            } else {
                 parentList.forEach(function (list) {
-                    list.classList.remove('select_show');
+                    list.classList.remove(showClass);
                 })
                 parentListArrow.forEach(function (arrow) {
                     arrow.classList.remove('active');
                 })
-                ulList.classList.add('select_show');
+                ulList.classList.add(showClass);
                 optionList.classList.add('active');
-            }
-            let valueOpt = arrayObject.getOptionValue();
+            arrayObject.getOptionValue( optionList);
         }));
     }
-    getOptionValue() {
+    getOptionValue(option) {
         let changelistNext = this;
-        let valueShow = document.querySelectorAll('.list.select_show li');
+        let listOption = option.querySelector('.list.select_show');
+        let valueShow = listOption.children;
         let parentSelectShow, parentUl, parentMain, listChildren, spanTextUl, changeElem, valElem;
-        valueShow.forEach(opt => opt.addEventListener('click', function () {
+        for (let optionChange of valueShow) {
+            optionChange.addEventListener('click', function () {
             parentSelectShow = this;
             parentUl = parentSelectShow.parentNode;
             parentMain = parentUl.parentNode;
@@ -90,15 +82,17 @@ class CustomSelect {
             valElem = changeElem.getAttribute('value');
             parentSelectShow.classList.add('checked');
             spanTextUl.innerText = valElem;
-            let hideListUl = changelistNext.hideList();
-        }))
+            changelistNext.hideList();
+        })}
     }
+
     hideList() {
         let ulActive = document.querySelectorAll('.list');
         let parentBlock = document.querySelectorAll('.custom-list');
         ulActive.forEach(list => list.classList.remove('select_show'));
         parentBlock.forEach(block => block.classList.remove('active'));
     }
+
     hideAllList() {
         window.addEventListener("mouseup", function (event) {
             let divToHide = document.querySelectorAll('.custom-list span');
@@ -109,7 +103,8 @@ class CustomSelect {
             }
         })
     }
-    destroy(){
+
+    destroy() {
         let listAllDom = document.querySelectorAll('.custom-list');
         for (let elem of listAllDom) {
             elem.remove();
@@ -117,13 +112,7 @@ class CustomSelect {
     }
 }
 
-let elemRemove = document.getElementById('remove');
-elemRemove.addEventListener('click', function () {
-    let initial = customSelect.destroy();
-})
 
-const customSelect = new CustomSelect();
-let initial = customSelect.init();
 
 
 

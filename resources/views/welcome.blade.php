@@ -393,7 +393,7 @@
 <h1>Привит</h1>
 <div class="container-selects-all">
 <div class="container-select">
-    <select name="appartment selectpicker" >
+    <select name="appartment selectpicker" class="someselect">
         <option value="Выберите значение квартиры" disabled> Выберите значение квартиры</option>
         <option value="квартира">квартира</option>
         <option value="лоджия">лоджия</option>
@@ -402,7 +402,7 @@
     </select>
 </div>
 <div class="container-select">
-    <select name="room" >
+    <select name="room" class="someselect" >
         <option value="Выберите значение 1+1" disabled> Выберите значение 1+1</option>
         <option value="1+1">1+1</option>
         <option value="2+1">2+1</option>
@@ -410,8 +410,9 @@
         <option value="4+1">4+1</option>
     </select>
 </div>
+
     <div class="container-select">
-        <select name="qust" >
+        <select name="qust"  class="someselect">
             <option value="Выберите значение района" disabled> Выберите значение района</option>
             <option value="район 1">район 1</option>
             <option value="район 2">район 2</option>
