@@ -1,2 +1,1 @@
-const customSelect = new CustomSelect();
-customSelect.init();
+const customSelect = new CustomSelect('.someselect');

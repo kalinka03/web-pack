@@ -1,17 +1,20 @@
 class CustomSelect {
-    init() {
-        const showClass = 'select_show';
-        const constSelect = '.someselect';
-        const parentList = document.querySelectorAll('.custom-list .list');
-        const parentListArrow = document.querySelectorAll('.custom-list');
-        const elem = document.querySelectorAll(constSelect);
-        for (let option of elem) {
-           this.getOptions(option);
-        }
-        this.addEventOption(showClass, parentList, parentListArrow);
+    constructor(constSelect){
+        this.constSelect = constSelect;
+        this.showClass = 'select_show';
+        this.activeClass = 'active';
+        this.constSelect = '.someselect';
+        this.valueChacked = 'checked';
+        this.getSelect();
+        this.addEventOption();
         this.hideAllList();
     }
-
+    getSelect(){
+        this.elem = document.querySelectorAll(this.constSelect);
+        for (let option of this.elem) {
+            this.getOptions(option);
+        }
+    }
     getOptions(option) {
         let val = [];
         for (let i = 0; i < option.length; i++) {
@@ -44,26 +47,20 @@ class CustomSelect {
         }
         return divCustomList;
     }
-    addEventOption(showClass, parentList, parentListArrow) {
+    addEventOption() {
         let elemSelectList = document.querySelectorAll('.custom-list span')
-        let arrayObject = this;
+        let $this = this;
         elemSelectList.forEach(opt => opt.addEventListener('click', function () {
             let getThis = opt;
             let ulList = getThis.nextSibling;
             let optionList = getThis.parentNode;
-                parentList.forEach(function (list) {
-                    list.classList.remove(showClass);
-                })
-                parentListArrow.forEach(function (arrow) {
-                    arrow.classList.remove('active');
-                })
-                ulList.classList.add(showClass);
-                optionList.classList.add('active');
-            arrayObject.getOptionValue( optionList);
+                ulList.classList.add($this.showClass);
+                optionList.classList.add($this.activeClass);
+            $this.getOptionValue(optionList);
         }));
     }
     getOptionValue(option) {
-        let changelistNext = this;
+        let $this = this;
         let listOption = option.querySelector('.list.select_show');
         let valueShow = listOption.children;
         let parentSelectShow, parentUl, parentMain, listChildren, spanTextUl, changeElem, valElem;
@@ -74,23 +71,23 @@ class CustomSelect {
             parentMain = parentUl.parentNode;
             listChildren = parentUl.children;
             for (let option of listChildren) {
-                option.classList.remove('checked')
+                option.classList.remove($this.valueChacked)
             }
             spanTextUl = parentSelectShow.parentNode.previousSibling;
-            parentMain.classList.remove('active');
+            parentMain.classList.remove($this.activeClass);
             changeElem = this;
             valElem = changeElem.getAttribute('value');
-            parentSelectShow.classList.add('checked');
+            parentSelectShow.classList.add($this.valueChacked);
             spanTextUl.innerText = valElem;
-            changelistNext.hideList();
+                $this.hideList();
         })}
     }
 
     hideList() {
         let ulActive = document.querySelectorAll('.list');
         let parentBlock = document.querySelectorAll('.custom-list');
-        ulActive.forEach(list => list.classList.remove('select_show'));
-        parentBlock.forEach(block => block.classList.remove('active'));
+        ulActive.forEach(list => list.classList.remove(this.showClass));
+        parentBlock.forEach(block => block.classList.remove(this.activeClass));
     }
 
     hideAllList() {
