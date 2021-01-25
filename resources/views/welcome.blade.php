@@ -392,6 +392,7 @@
 <body class="antialiased">
 <h1>Привит</h1>
 <div class="container-selects-all">
+    <form>
 <div class="container-select">
     <select name="appartment selectpicker" class="someselect">
         <option value="Выберите значение квартиры" disabled> Выберите значение квартиры</option>
@@ -422,7 +423,10 @@
 
         </select>
     </div>
+        <input type="submit" value="Go!" class="Submit" />
+    </form>
 </div>
+
 <p id="remove">Удалить плагин</p>
 {{--<form action="">--}}
 
